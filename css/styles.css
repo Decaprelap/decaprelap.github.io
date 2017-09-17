@@ -27,7 +27,7 @@ a{
 
 #subTitle {
     font-size: 1.6rem;
-    font-family: nexa, PT sans;
+    font-family: nexa, 'PT sans', sans-serif;
 }
 #signIn {
     font-family: bungee Shade;
