@@ -1,4 +1,5 @@
 var map;
+var clickoff = 0;
 
 
 function initMap() {
@@ -23,46 +24,83 @@ function initMap() {
     
 map = new google.maps.Map(document.getElementById('map'), mapOptions);
         
+        var southWest = new google.maps.LatLng(-41.25, 174.75);
+        var northEast = new google.maps.LatLng(-41.34, 174.7762);
+        var lngSpan = northEast.lng() - southWest.lng();
+        var latSpan = northEast.lat() - southWest.lat();
+
+        var markers = [];
+        
+
+        
+        for (var i = 1; i < 8; i++) {
+
+        var location = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(), southWest.lng() + lngSpan * Math.random());
+
+        var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon: {
+                    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                    scale: 3,
+                    strokeColor: '#86ef1e'
+                },
+            
+        
+            
+        });
+            
+        //when a marker is clicked
+        $("#signInMenu").hide();
+        marker.addListener('click', function() {
+            var zoom = map.getZoom();    
+            map.panTo(this.getPosition());
+                clickoff = 0;
+            $("#prompt").animate({
+                top: '0rem'
+            },500, function(){
+                $("#header").css('top','0rem')
+                clickoff = 50;
+            });               
+            $("#signInMenu").fadeIn(500);
+            $("#map").addClass("blur");
+            
+            if (zoom <= 12) {
+                map.setZoom(15);
+            }
+        });    
+        markers.push(marker);       
+        }
+
+
 
 };          
 
 
 //JQuery
 $(document).ready(function(){
-    $("#signInMenu").hide();
-    
-    
-    
-    $("#signIn").click(function(){
-        $("#header").animate({
-            top: '-40rem'
-        },500, function(){
-          $("#header").css('top','-40rem')   
-        });               
-        $("#signInMenu").fadeIn(500);
-        $("#map").addClass("blur");
-    });
         $("#map").click(function(){
+            
+            console.log(clickoff == 50);
+            if (clickoff == 50) {
             $("#signInMenu").fadeOut(500);
             $("#header").animate({
                 top: '0rem'
                 },500, function(){
-                    $("#header").css('top','0rem')   
+                    $("#header").css('top','0rem') 
+                    clickoff = 0;
             });
             $("#map").removeClass("blur");
+            };
+        });
+        $("#track").click(function(){
+           window.location.replace("https://soundcloud.com/skrillex");
         });
     
-    $("#signIn").hover(function(){
+        $("#track").hover(function(){
         $(this).addClass("active");
     });
-    $("#signIn").mouseleave(function(){
-        $("#signIn").removeClass("active");
-    });
-    
-    $('input').keypress(function(e) {
-        var dInput = this.value;      
-        if(e.which == 13){
-            window.location.replace("main.html");       
-        };
+    $("#track").mouseleave(function(){
+        $("#track").removeClass("active");
     });
 });
