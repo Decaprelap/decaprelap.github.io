@@ -94,7 +94,7 @@ $(document).ready(function(){
             };
         });
         $("#track").click(function(){
-           window.location.replace("https://soundcloud.com/skrillex");
+           window.location.replace("player.html");
         });
     
         $("#track").hover(function(){

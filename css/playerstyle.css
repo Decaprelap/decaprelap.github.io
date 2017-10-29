@@ -1,0 +1,168 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
+    background: #222;
+    -moz-transition: background 0.5s ease-out;
+    -o-transition: background 0.5s ease-out;
+    -webkit-transition: background 0.5s ease-out;
+    transition: background 0.5s ease-out;
+}
+.intro {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    padding: 0 1em;
+    width: 100%;
+    margin-left: -50%;
+}
+.scope {
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    bottom: 0px;
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+.scope ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.scope ul li {
+    -moz-transition: background 0.5s ease-out;
+    -o-transition: background 0.5s ease-out;
+    -webkit-transition: background 0.5s ease-out;
+    transition: background 0.5s ease-out;
+    display: block;
+    position: relative;
+    bottom: -32px;
+    padding: 0;
+    margin-left: 0.1%; 
+    margin-right: 0.1%;
+    width: 0.8%;
+
+    background: #58ff00;
+    min-height: 1px;
+    float: left;
+}
+.scope.trigger ul li {
+    background: #58ff00;
+    
+}
+
+audio {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.ui {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.ui a {
+    display: block;
+    padding: 5px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font: 700 12px Consolas, system, monospace;
+    -moz-transition: all 250ms linear;
+    -o-transition: all 250ms linear;
+    -webkit-transition: all 250ms linear;
+    transition: all 250ms linear;
+    float: ;
+    text-align: right;
+}
+.ui a:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+.rating {
+    color: #ffffff;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    pointer-events:all;
+    cursor: pointer;
+    display: block;
+    font-size: 2em;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+    color: transparent;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    left: 0; 
+    color: #86ef1e;
+}
+
+.logocontainer{
+    width: 100%;
+    display: inline-block;
+}
+
+#logo{
+    transform: rotateX(180deg);
+    max-width: 600px;
+    display: block;
+    margin: auto;
+    transition: all 250ms linear;
+    margin-bottom: 100px;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-top: px;
+}
+
+
